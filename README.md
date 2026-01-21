@@ -9,3 +9,14 @@ This is custom node includes next primitives nodes:
 # Installation
 
 Download `comfyui-primitive-convert`, then copy to your `ComfyUI/custom_nodes/` and restart ComfyUI
+
+# Usage
+
+You can use this for input node parameter `filename_prefix` of the Save Image node to name the output generations meaningfully. For example ([Download the workflow](media/Flux.2_klein.json)):
+
+![](media/1.png)
+![](media/2.png)
+
+In the output folder you will get file names similar to the following:
+
+![](media/3.png)
