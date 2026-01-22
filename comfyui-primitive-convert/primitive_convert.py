@@ -7,7 +7,7 @@ class ToStringNode:
     Converts any primitive value (STRING, FLOAT, INT, BOOLEAN) to its string representation
     """
 
-    DESCRIPTION = cleandoc(__doc__) if __doc__ is not None else ""
+    DESCRIPTION = cleandoc(__doc__ or "")
     CATEGORY = "utils/convert"
 
     @classmethod
@@ -34,7 +34,7 @@ class ToIntNode:
     Converts any primitive value (STRING, FLOAT, INT, BOOLEAN) to its int representation
     """
 
-    DESCRIPTION = cleandoc(__doc__) if __doc__ is not None else ""
+    DESCRIPTION = cleandoc(__doc__ or "")
     CATEGORY = "utils/convert"
 
     @classmethod
@@ -85,7 +85,7 @@ class ToFloatNode:
     Converts any primitive value (STRING, FLOAT, INT, BOOLEAN) to its float representation
     """
 
-    DESCRIPTION = cleandoc(__doc__) if __doc__ is not None else ""
+    DESCRIPTION = cleandoc(__doc__ or "")
     CATEGORY = "utils/convert"
 
     @classmethod
