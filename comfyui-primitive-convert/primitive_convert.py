@@ -14,7 +14,7 @@ class ToStringNode:
     def INPUT_TYPES(cls) -> InputTypeDict:
         return {
             "required": {
-                "value": (IO.PRIMITIVE, {}),
+                "value": (IO.ANY, {}),
             },
         }
 
@@ -23,10 +23,7 @@ class ToStringNode:
 
     def convert_to_string(self, value):
 
-        if isinstance(value, (int, float, str, bool)) or value is None:
-            return (str(value),)
-        else:
-            raise ValueError(f"Unsupported type for ToString: {type(value)}")
+        return (str(value),)
 
 
 class ToIntNode:
