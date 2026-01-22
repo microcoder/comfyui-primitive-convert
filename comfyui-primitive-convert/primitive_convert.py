@@ -1,21 +1,28 @@
+from comfy.comfy_types import IO, InputTypeDict
+from inspect import cleandoc
 
 
 class ToStringNode:
+    """
+    Converts any primitive value (STRING, FLOAT, INT, BOOLEAN) to its string representation
+    """
+
+    DESCRIPTION = cleandoc(__doc__) if __doc__ is not None else ""
+    CATEGORY = "utils/convert"
+
     @classmethod
-    def INPUT_TYPES(cls):
+    def INPUT_TYPES(cls) -> InputTypeDict:
         return {
             "required": {
-                # Типы которые узел принимает на вход:
-                "value": ("*"),
+                "value": (IO.PRIMITIVE, {}),
             },
         }
 
-    RETURN_TYPES = ("STRING",)
+    RETURN_TYPES = (IO.STRING,)
     FUNCTION = "convert_to_string"
-    CATEGORY = "utils/convert"
 
     def convert_to_string(self, value):
-        # Обрабатываем случай, если значение — число, булево, None и т.д.
+
         if isinstance(value, (int, float, str, bool)) or value is None:
             return (str(value),)
         else:
@@ -23,17 +30,23 @@ class ToStringNode:
 
 
 class ToIntNode:
+    """
+    Converts any primitive value (STRING, FLOAT, INT, BOOLEAN) to its int representation
+    """
+
+    DESCRIPTION = cleandoc(__doc__) if __doc__ is not None else ""
+    CATEGORY = "utils/convert"
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "value": ("*",),
+                "value": (IO.PRIMITIVE, {}),
             },
         }
 
-    RETURN_TYPES = ("INT",)
+    RETURN_TYPES = (IO.INT,)
     FUNCTION = "convert_to_int"
-    CATEGORY = "utils/convert"
 
     def convert_to_int(self, value):
 
@@ -68,17 +81,23 @@ class ToIntNode:
 
 
 class ToFloatNode:
+    """
+    Converts any primitive value (STRING, FLOAT, INT, BOOLEAN) to its float representation
+    """
+
+    DESCRIPTION = cleandoc(__doc__) if __doc__ is not None else ""
+    CATEGORY = "utils/convert"
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "value": ("*",),
+                "value": (IO.PRIMITIVE, {}),
             },
         }
 
-    RETURN_TYPES = ("FLOAT",)
+    RETURN_TYPES = (IO.FLOAT,)
     FUNCTION = "convert_to_float"
-    CATEGORY = "utils/convert"
 
     def convert_to_float(self, value):
 
