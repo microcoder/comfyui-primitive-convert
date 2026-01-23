@@ -1,16 +1,45 @@
-# comfyui-primitive-convert
+# ComfyUI Primitive Convert
 
-This is custom node includes next primitives nodes:
+Custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) that convert between primitive data types (string, integer, float, boolean).
 
-* **To String** - convert `INT`, `FLOAT`, `BOOLEAN` to `STRING`
-* **To Int** - convert `STRING`, `FLOAT`, `BOOLEAN` to `INT`
-* **To Float** - convert `STRING`, `INT`, `BOOLEAN` to `FLOAT`
+## Installation
 
-# Installation
+1. Clone this repo into your `ComfyUI/custom_nodes/` folder:
+    ```bash
+    cd ComfyUI/custom_nodes
+    git clone https://github.com/microcoder/comfyui-primitive-convert.git
+    ```
 
-Download `comfyui-primitive-convert`, then copy to your `ComfyUI/custom_nodes/` and restart ComfyUI
+2. Restart ComfyUI
 
-# Usage
+## Nodes
+
+All nodes are located in the `utils/convert` category.
+
+### To String
+
+Converts any input value to its string representation.
+Supports: numbers, booleans, None, tensors, lists, dictionaries — anything that has a `str()` representation.
+
+### To Int
+
+Converts input to an integer:
+
+* `FLOAT` → rounded to nearest integer
+* `STRING` → parsed as number (e.g., `"42"` → `42`)
+* `BOOLEAN` → True = `1`, False = `0`
+* Invalid or empty input → `0`
+
+### To Float
+
+Converts input to a floating-point number:
+
+* `INT` → converted to float (e.g., `42` → `42.0`)
+* `STRING` → parsed as float (e.g., `"3.14"` → `3.14`)
+* `BOOLEAN` → True = `1.0`, False = `0.0`
+* Invalid or empty input → `0.0`
+
+## Example Usage
 
 You can use this for input node parameter `filename_prefix` of the Save Image node to name the output generations meaningfully. For example ([Download the workflow](_media/Flux.2_klein.json)):
 
@@ -20,3 +49,7 @@ You can use this for input node parameter `filename_prefix` of the Save Image no
 In the output folder you will get file names similar to the following:
 
 ![](_media/3.png)
+
+## License
+
+MIT
