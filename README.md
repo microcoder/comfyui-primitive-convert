@@ -39,7 +39,7 @@ Converts input to a floating-point number:
 * `BOOLEAN` → True = `1.0`, False = `0.0`
 * Invalid or empty input → `0.0`
 
-## Example Usage
+## Use Cases
 
 You can use this for input node parameter `filename_prefix` of the Save Image node to name the output generations meaningfully. For example ([Download the workflow](_media/Flux.2_klein.json)):
 
