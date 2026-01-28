@@ -14,7 +14,7 @@ class ToStringNode:
     def INPUT_TYPES(cls) -> InputTypeDict:
         return {
             "required": {
-                "value": (IO.ANY, {}),
+                "ANY": (IO.ANY, {"tooltip": f"Converting from: {IO.STRING}, {IO.INT}, {IO.FLOAT}, {IO.BOOLEAN}"}),
             },
         }
 
